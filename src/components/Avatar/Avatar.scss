@@ -1,0 +1,49 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.avatar {
+  @include flexCentered;
+
+  border-radius: 50%;
+  background-color: $gray_secondary;
+
+  &_icon {
+    @include widthHeight(100%, 100%);
+    @include backgroundIMG(3.6rem);
+
+    background-image: url(../../assets/icon_svg/User_avatar_edit.svg);
+  }
+
+  &_letter {
+    @include flexCentered;
+    @include widthHeight(100%, 100%);
+
+    color: $blue;
+    text-transform: uppercase;
+    text-align: center;
+
+    &__10 {
+      @include text(10px, 10px, 500);
+    }
+
+    &__12 {
+      @include text(12px, 12px, 500);
+    }
+
+    &__18 {
+      @include text(18px, 18px, 500);
+    }
+
+    &__24 {
+      @include text(24px, 24px, 700);
+    }
+
+    &__32 {
+      @include text(32px, 32px, 700);
+    }
+
+    &__40 {
+      @include text(40px, 40px, 800);
+    }
+  }
+}

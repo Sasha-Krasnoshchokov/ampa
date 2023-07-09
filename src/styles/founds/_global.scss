@@ -1,0 +1,64 @@
+@import './mixins';
+@import './variables';
+@import '../fonts/fontStyles.scss';
+
+:root {
+  color: $black;
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+@include buttons;
+@include iconMenuItem;
+
+@font-face{
+  font-family: text-security-disc;
+  src: url("https://raw.githubusercontent.com/noppa/text-security/master/dist/text-security-disc.woff");
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a, button {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select,
+option,
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+a, ul, li {
+  color: inherit;
+  list-style: none;
+  text-decoration: none;
+}
+
+select {
+  appearance: none;
+}
+
+.disable_scroll {
+  overflow: hidden;
+}

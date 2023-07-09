@@ -1,0 +1,270 @@
+@use "sass:map";
+
+@mixin widthHeight($w: 100%, $h: max-content) {
+  width: $w;
+  height: $h;
+}
+
+@mixin absolute ($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  @if ($top) {
+    top: $top;
+  }
+  @if ($right) {
+    right: $right;
+  }
+  @if ($bottom) {
+    bottom: $bottom;
+  }
+  @if ($left) {
+    left: $left;
+  }
+}
+
+@mixin flexCentered($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin mediaQuery($width: null) {
+  @if ($width) {
+    @media (max-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin backgroundIMG($minWidth: 10px) {
+  min-width: $minWidth;
+  min-height: $minWidth;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@mixin text($size: inherit, $height: 1.5, $weight: 400, $spacing: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  letter-spacing: $spacing;
+}
+
+@mixin outline($radius: 0.4rem, $bgc: $white) {
+  background-color: $bgc;
+  border: 0.1rem solid $gray_milky;
+  box-shadow: 0 0.4rem 1.4rem rgba(60, 60, 60, 0.05);
+  border-radius: $radius;
+}
+
+@mixin arrowOpener($w: 2rem) {
+  &:hover::after {
+    // background-image: url(/src/assets/icon_svg/arrow_down__dark.svg);
+    background-image: url(../../assets/icon_svg/arrow_down__dark.svg);
+    transform: translateY(calc(-50% + 0.4rem));
+    transition: transform 0.4s linear;
+  }
+
+  &::after {
+    content: '';
+    @include absolute(50%, 0);
+    @include widthHeight($w, $w);
+    @include backgroundIMG($w);
+
+    // background-image: url(/src/assets/icon_svg/arrow_down.svg);
+    background-image: url(../../assets/icon_svg/arrow_down.svg);
+    transform:  translateY(-50%);
+    transition: transform 0.4s linear;
+  }
+
+  &__open::after {
+    transform: rotate(180deg) translateY(50%);
+  }
+  &__open:hover::after {
+    // background-image: url(/src/assets/icon_svg/arrow_down__dark.svg);
+    background-image: url(../../assets/icon_svg/arrow_down__dark.svg);
+    transform: rotate(180deg) translateY(calc(50% + 0.4rem));
+  }
+}
+@mixin arrowOpenerHorizontal($w: 1.6rem) {
+  &:hover::after {
+    // background-image: url(/src/assets/icon_svg/arrow_down__dark.svg);
+    background-image: url(../../assets/icon_svg/arrow_down__dark.svg);
+    transform: rotate(90deg) translateY(0.4rem);
+    transition: transform 0.4s linear;
+  }
+
+  &::after {
+    content: '';
+    @include absolute(25%, 0);
+    @include widthHeight($w, $w);
+    @include backgroundIMG($w);
+
+    // background-image: url(/src/assets/icon_svg/arrow_down.svg);
+    background-image: url(../../assets/icon_svg/arrow_down.svg);
+    transform: rotate(90deg);
+    transition: transform 0.4s linear;
+  }
+
+  &__open::after {
+    transform: rotate(270deg);
+  }
+  &__open:hover::after {
+    // background-image: url(/src/assets/icon_svg/arrow_down__dark.svg);
+    background-image: url(../../assets/icon_svg/arrow_down__dark.svg);
+    transform: rotate(270deg) translateY(0.4rem);
+  }
+}
+
+@mixin buttons {
+  @each $key in $btnThemesMap {
+    $theme: map.get($btn_themes, $key);
+    $bg: map.get($theme, 'bg');
+    $color: map.get($theme, 'color');
+    $padding: map.get($theme, 'padding');
+    .button__#{$key} {
+      padding: $padding;
+      background-color: $bg;
+      color: $color;
+      @if $key == 'light' {
+        border: 1px solid $blue;
+      }
+      @if $key == 'transparent' {
+        width: max-content;
+      } @else if $key == 'transparentBlue' {
+        width: max-content;
+      } @else if $key == 'transparentRed' {
+        width: max-content;
+      } @else {
+        width: 100%;
+      }
+    }
+  }
+  @each $key in $btnSizesMap {
+    $size: map.get($btn_sizes, $key);
+    $h: map.get($size, 'height');
+    $r: map.get($size, 'radius');
+    .button__#{$key} {
+      @include flexCentered;
+      height: $h;
+      border-radius: $r;
+    }
+  }
+}
+
+@mixin dropBox(
+  $top: 110%,
+  $right: 0,
+  $left: null,
+  $padding: 2.4rem 0 1.2rem 0,
+) {
+  @include absolute($top, $right, null, $left);
+  @include outline;
+
+  padding: $padding;
+  z-index: 10;
+}
+
+@mixin iconTextItem($icon, $iconSize: 10px, $lh: 110%) {
+  @include flexCentered;
+  @include widthHeight(max-content);
+
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: $lh;
+
+  // $url: '/src/assets/icon_svg/#{$icon}.svg';
+  $url: '../../assets/icon_svg/#{$icon}.svg';
+  &__#{$icon} {
+    position: relative;
+    padding-left: calc(6px + $iconSize);
+
+    &::before {
+      content: '';
+      @include absolute(50%, null, null, 0);
+      @include widthHeight($iconSize, $iconSize);
+      @include backgroundIMG($iconSize);
+
+      transform: translateY(-50%);
+      background-image: url($url);
+    }
+  }
+}
+
+@mixin iconMenuItemTemplate {
+  @include flexCentered(row, center, flex-start);
+  @include widthHeight(max-content);
+
+  position: relative;
+  padding-left: 24px;
+  width: 100%;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+
+  &::before {
+    content: '';
+    @include absolute(50%, null, null, 0);
+    @include widthHeight(16px, 16px);
+    @include backgroundIMG(16px);
+
+    transform: translateY(-50%);
+  }
+}
+
+@mixin iconMenuItem {
+  @each $icon in $menuIcons {
+    // $grayIcon: '/src/assets/icon_svg/#{$icon}_gray.svg';
+    // $blackIcon: '/src/assets/icon_svg/#{$icon}_black.svg';
+    $grayIcon: '../../assets/icon_svg/#{$icon}_gray.svg';
+    $blackIcon: '../../assets/icon_svg/#{$icon}_black.svg';
+
+    .menuTextWithIcon_#{$icon} {
+      @include iconMenuItemTemplate;
+
+      &::before {
+        background-image: url($grayIcon);
+      }
+      &:hover::before {
+        background-image: url($blackIcon);
+      }
+    }
+    .menuTextWithIcon_#{$icon}__active {
+      @include iconMenuItemTemplate;
+
+      &::before {
+        background-image: url($blackIcon);
+      }
+    }
+  }
+}
+
+@mixin badge {
+  @include flexCentered;
+  @include text(12px, 16px, 500);
+
+  padding: 2px 10px;
+  border-radius: 16px;
+  text-transform: capitalize;
+
+  &__blue {
+    color: $blue;
+    background-color: rgba(67, 108, 255, 0.1);
+  }
+
+  &__red {
+    color: $red;
+    background-color: rgba(255, 63, 85, 0.1);
+  }
+
+  &__green {
+    color: $green;
+    background-color: rgba(0, 188, 84, 0.1);
+  }
+
+  &__yellow {
+    color: $yellow;
+    background-color: rgba(255, 192, 36, 0.1);
+  }
+}

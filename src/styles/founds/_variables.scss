@@ -1,0 +1,130 @@
+
+/*=============================================
+=                    COLORS                   =
+=============================================*/
+
+$blue: #436CFF;
+$blue_secondary: #0074DF;
+$blue_light: #CFE8FF;
+$blue_light_extra: #F7F9FA;
+
+$purple: #4C35CF;
+$purple_light: #CFC7FF;
+
+$gray: #95A1B5;
+$gray_secondary: #C5CAD4;
+$gray_light: #E5E5E5;
+$gray_light_extra: #F1F1F1;
+$gray_milky: #EBEFF2;
+
+$yellow: #FFC024;
+$yellow_light: #FFF0CB;
+
+$green: #00BC54;
+$green_light: #DEFFED;
+
+$orange: #FF6B00;
+
+$red: #FF3F55;
+
+$black: #192839;
+
+$white: #FFF;
+
+$dark_remotely: #475462;
+
+/*=====          End of COLORS         ======*/
+
+
+/*=============================================
+=                BUTTONS                      =
+=============================================*/
+
+/*----------  THEMES  ----------*/
+$btnThemesMap: ('dark', 'light', 'red', 'green',
+'transparent', 'transparentBlue', 'transparentRed');
+
+$btn_themes: (
+  'dark': (
+    'bg': $blue,
+    'color': $white,
+    'padding': 0 16px,
+  ),
+  'light': (
+    'bg': $blue_light_extra,
+    'color': $blue,
+    'padding': 0 16px,
+  ),
+  'red': (
+    'bg': $red,
+    'color': $white,
+    'padding': 0 16px,
+  ),
+  'green': (
+    'bg': $green,
+    'color': $white,
+    'padding': 0 16px,
+  ),
+  'transparent': (
+    'bg': transparent,
+    'color': inherit,
+    'padding': 0,
+  ),
+  'transparentBlue': (
+    'bg': transparent,
+    'color': $blue,
+    'padding': 0,
+  ),
+  'transparentRed': (
+    'bg': transparent,
+    'color': $red,
+    'padding': 0,
+  ),
+);
+
+/*----------  SIZES  ----------*/
+$btnSizesMap: ('icon', 'xs', 'sm', 'md', 'lg', 'xl', 'logIn');
+
+$btn_sizes: (
+  'icon': (
+    'height': max-content,
+    'radius': 0,
+  ),
+  'xs': (
+    'height': 20px,
+    'radius': 20px,
+  ),
+  'sm': (
+    'height': 28px,
+    'radius': 40px,
+  ),
+  'md': (
+    'height': 36px,
+    'radius': 25px,
+  ),
+  'lg': (
+    'height': 44px,
+    'radius': 25px,
+  ),
+  'xl': (
+    'height': 48px,
+    'radius': 50px,
+  ),
+  'logIn': (
+    'height': 42px,
+    'radius': 10px,
+  ),
+);
+
+/*=====      End of BUTTONS            ======*/
+
+
+/*=============================================
+=                  MENU ICONS                 =
+=============================================*/
+
+$menuIcons: ('house', 'cup', 'league', 'users', 'user', 'ball', 'whistle', 'settings', 'logout');
+
+/*=====        End of MENU ICONS       ======*/
+
+

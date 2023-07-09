@@ -1,0 +1,11 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.back {
+  @include absolute(0, null, null, 0);
+  @include widthHeight(2.4rem, 2.4rem);
+  @include backgroundIMG(2.4rem);
+
+  background-image: url(../../assets/icon_svg/back_icon.svg);
+  cursor: pointer;
+}

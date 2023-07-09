@@ -1,0 +1,46 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.link {
+  @include flexCentered(row, center, flex-start);
+  @include text(1.2rem, 1.6rem);
+
+  border-bottom: 0.1rem solid $gray;
+
+  &__inherit {
+    @include text(inherit, inherit, inherit);
+    color: inherit;
+    border: none;
+    background-color: inherit;
+  }
+  &_btn {
+    @include widthHeight(100%, 100%);
+    justify-content: center;
+  }
+
+  &__dark {
+    @extend .link_btn;
+    @include text(1.4rem, 1.8rem, 600, 0.02rem);
+
+    color: $blue_light_extra;
+    background-color: $blue;
+    border: none;
+  }
+
+  &__light {
+    @extend .link_btn;
+    @include text(1.4rem, 1.8rem, 600, 0.02rem);
+
+    color: $blue;
+    background-color: $blue_light_extra;
+    border: 0.1rem solid $blue;
+  }
+
+  &__transparent {
+    @include text(1.4rem, 1.8rem, 600, 0.02rem);
+
+    width: max-content;
+    color: $blue;
+    border: none;
+  }
+}

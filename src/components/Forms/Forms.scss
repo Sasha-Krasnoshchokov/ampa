@@ -1,0 +1,514 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.back_btn {
+  @include absolute(1rem, null, null, 0);
+}
+
+.title {
+  @include text(3.2rem, 4rem, 700, 0.01rem);
+
+  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: $blue;
+  text-align: center;
+}
+
+.subTitle {
+  @include text(1.6rem, 2.2rem);
+
+  margin-top: -0.8rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: $black;
+  text-align: center
+}
+
+.subButton {
+  @include text(1.5rem, 2.1rem, 400, 0.02rem);
+
+  margin-top: 2.4rem;
+  color: $black;
+
+  &__link {
+    color: $blue;
+
+    &:hover {
+      border-bottom: 1px solid $blue;
+    }
+  }
+}
+
+.signUp {
+  @include flexCentered(row, flex-start, space-between);
+  @include widthHeight(100%);
+
+  gap: 8%;
+
+  &_box {
+    @include flexCentered;
+    @include widthHeight(100%);
+
+    padding: 3rem 4rem;
+    border-radius: 4rem;
+    box-shadow: 0 0 10rem $gray;
+    z-index: 2;
+
+    &__blue {
+      align-items: flex-start;
+      background-color: $blue_light;
+    }
+    &__white {
+      background-color: $gray_light_extra;
+    }
+  }
+
+  &_desc {
+    @include flexCentered(column);
+    @include text(3.2rem, 4.4rem, 600, 0.02rem);
+
+    color: $blue;
+  }
+
+  &_form {
+    @include flexCentered(column, center, flex-start);
+    @include widthHeight(100%, 100%);
+
+    &_switcher {
+      @include flexCentered;
+
+      margin-bottom: 2.6rem;
+      width: 100%;
+
+      &_item {
+        @include flexCentered(column);
+        @include widthHeight(14rem);
+        @include text(2.4rem, 3.2rem, 600, 0.02rem);
+
+        color: $gray;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          width: 100%;
+          border-bottom: 3px solid $gray;
+        }
+
+        &__active {
+          color: $blue;
+
+          &::after {
+            content: '';
+            width: 100%;
+            border-bottom: 3px solid $blue;
+          }
+        }
+      }
+    }
+  }
+
+  @include mediaQuery(1080px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    height: max-content;
+
+    &_box {
+      min-height: max-content;
+    }
+  }
+
+  @include mediaQuery(880px) {
+    &_desc {
+      @include text(2.8rem, 4rem, 500, 0.02rem);
+    }
+  }
+
+  @include mediaQuery(740px) {
+    &_box {
+      padding: 2rem;
+    }
+    &_desc {
+      @include text(2.4rem, 3.6rem, 500, 0.02rem);
+    }
+  }
+
+  @include mediaQuery(600px) {
+    &_form {
+      &_row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  }
+}
+
+.logIn {
+  @include flexCentered(column);
+  @include widthHeight(100%, 100%);
+
+  &_form {
+    @include flexCentered(column);
+
+    position: relative;
+    width: 34.3rem;
+  }
+}
+
+.clubLogo {
+  @include flexCentered(column);
+  @include text(1.5rem, 2rem, 400, 0.02rem);
+
+  color: $gray;
+  cursor: pointer;
+}
+
+.formContent {
+  @include flexCentered(column, flex-start, flex-start);
+
+  position: relative;
+  padding: 3.2rem 4.2rem 4.2rem 4.2rem;
+  background-color: $white;
+  box-shadow: 0 0.4rem 2rem rgba(160, 160, 172, 0.2);
+  border-radius: 2.4rem;
+
+  &_title {
+    width: 100%;
+    color: $black;
+    text-align: center;
+
+    &__primary {
+      @include text(1.6rem, 2.4rem, 600, 0.02rem);
+
+      margin-bottom: 1.6rem;
+    }
+
+    &__secondary {
+      @include text(1.4rem, 2rem, 500, 0.02rem);
+
+      margin: 1.4rem 0;
+    }
+
+    &__left {
+      text-align: left;
+    }
+  }
+
+  &_shutter {
+    @include absolute(2.4rem, 2.4rem);
+    @include widthHeight(2.4rem, 2.4rem);
+  }
+
+  &_section {
+    @include flexCentered(column, flex-start, space-between);
+    @include widthHeight(100%);
+  }
+
+  &_formLabel {
+    margin-bottom: 0.8rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  &_row {
+    @include flexCentered(row, center, space-between);
+
+    gap: 1.6rem;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_buttons {
+    @include flexCentered(row, center, flex-end);
+    @include widthHeight(100%);
+
+    &__cancel {
+      @include flexCentered(row, center, flex-end);
+      @include widthHeight(max-content, 4.4rem);
+      @include text(1.4rem, 1.8rem);
+
+      margin-right: 2rem;
+    }
+
+    &__confirm {
+      @include flexCentered(row, center, flex-end);
+      @include widthHeight(6rem, 4.4rem);
+      @include text(1.4rem, 1.8rem, 500, 0.02rem);
+    }
+  }
+}
+
+.createGame {
+  min-width: 72rem;
+  min-height: 80rem;
+
+  &_referees {
+    width: 100%;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  &_refereeStatus {
+
+    &__assigned {
+      color: $green;
+    }
+  }
+  &_addBtn {
+    position: relative;
+    font-size: 1.4rem;
+  }
+  &_assignBtn {
+    width: 8rem;
+    min-width: 8rem;
+  }
+  &_deleteBtn {
+    @include widthHeight(1.6rem, 1.6rem);
+    position: relative;
+    margin-left: 0.8rem;
+
+    &::after {
+      content: '';
+      @include absolute(0, 0);
+      @include backgroundIMG(1.6rem);
+
+      // background-image: url(/src/assets/icon_svg/delete.svg);
+      background-image: url(../../assets/icon_svg/delete.svg);
+    }
+  }
+}
+
+.editTeam {
+  min-width: 72rem;
+  min-height: 60rem;
+
+  &_selectNewImg {
+    @include text(1.4rem, 2rem);
+
+    color: $gray;
+  }
+}
+
+.deletePopUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 46rem;
+  min-height: 24rem;
+  transform: translateY(-50%) translateX(-50%);
+
+  &_text {
+    @include text(1.4rem, 2.4rem, 400, 0.056rem);
+
+    margin-top: 4rem;
+    width: 100%;
+    text-align: center;
+
+    &__bold {
+      @include text(1.4rem, 2.4rem, 600, 0.056rem);
+
+      margin-bottom: 2rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.refereeFeedback {
+  @include flexCentered(column);
+
+  padding: 1.2rem 0;
+  width: 100%;
+
+  &_ranksRow {
+    @include flexCentered(row, center, space-between);
+
+    margin-bottom: 2.4rem;
+    width: 100%;
+  }
+
+  &_rank {
+    @include flexCentered(row, center, space-between);
+    @include text(1.4rem, 2.2rem, 200, 0.02rem);
+
+    width: 45%;
+
+    &_stars {
+      @include flexCentered;
+    }
+
+    &_star {
+      @include widthHeight(2.2rem, 2.2rem);
+      @include backgroundIMG(2.2rem);
+
+      background-image: url(../../assets/icon_svg/star_gray.svg);
+
+      &__active {
+        background-image: url(../../assets/icon_svg/star.svg);
+      }
+    }
+  }
+
+  &_label {
+    @include text(1.4rem, 2rem, 400, 0.02rem);
+
+    margin-bottom: 0.4rem;
+    width: 100%;
+    color: $gray;
+  }
+
+  &_textArea {
+    @include text(1.3rem, 2.4rem, 200, 0.054rem);
+
+    margin: 0.6rem 0 1.2rem 0;
+    padding: 0.8rem 1.6rem;
+    width: 100%;
+    color: $gray;
+    border: 0.1rem solid $gray_secondary;
+    border-radius: 0.4rem;
+
+    &__warn::placeholder {
+      color: $red;
+    }
+  }
+
+  &_buttons {
+    @include flexCentered(row, center, flex-end);
+
+    width: 100%;
+
+    &_submit {
+      @include flexCentered;
+      @include widthHeight(15rem, 4.4rem);
+    }
+  }
+}
+
+.paymentCard {
+  padding: 2.4rem 0;
+  width: 100%;
+  border-bottom: 0.1rem solid $gray_light_extra;
+
+  &_form {
+    margin-left: 2.4rem;
+    width: max-content;
+  }
+}
+
+.gamePricesCard {
+  @include flexCentered(column, flex-start, flex-start);
+  @include widthHeight(36rem);
+
+  padding: 2.4rem;
+
+  &_title {
+    @include flexCentered(row, center, space-between);
+    @include widthHeight(100%);
+    @include text(1.4rem, 2.4rem, 700);
+
+    margin-bottom: 1.2rem;
+
+    &_icon {
+      position: relative;
+      padding-left: 3.2rem;
+
+      &::before {
+        content: '';
+        @include absolute(0, null, null, 0);
+        @include widthHeight(2.4rem, 2.4rem);
+        @include backgroundIMG(2.4rem);
+
+        background-image: url(../../assets/icon_svg/ball_black.svg);
+      }
+    }
+  }
+}
+
+.settingsSupport {
+  @include flexCentered(column, center, center);
+  @include widthHeight(34rem);
+
+  padding: 2rem 0 6rem 0;
+
+  &_icon {
+    @include widthHeight(23.5rem, 21.5rem);
+    @include backgroundIMG(21.5rem);
+
+    margin-bottom: 4rem;
+    background-image: url(../../assets/icon_png/support.png);
+  }
+
+  &_text {
+    @include text(1.4rem, 2.4rem);
+
+    margin-bottom: 2rem;
+    color: $gray;
+  }
+}
+
+.profileForm {
+  width: 80%;
+
+  &_content {
+    @include flexCentered(row, flex-start, flex-start);
+  
+    width: 100%;
+  }
+
+  &_avatar {
+    @include widthHeight(8.4rem, 100%);
+    @include text(1.3rem, 2.4rem, 400, 0.054rem);
+
+    margin-right: 6.8rem;
+    min-width: 8.4rem;
+    color: $blue;
+  }
+
+  &_inputs {
+    width: 100%;
+  }
+}
+
+@include mediaQuery(1400px) {
+  .profileForm {
+    width: 100%;
+  }
+}
+
+@include mediaQuery(880px) {
+  .formContent {
+    min-width: 50rem;
+    &_row {
+      flex-direction: column;
+    }
+  }
+}
+
+@include mediaQuery(600px) {
+  .formContent {
+    min-width: 30rem;
+  }
+  .refereeFeedback {
+    &_ranksRow {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+    &_rank {
+      margin-bottom: 2rem;
+      width: 100%;
+    }
+  }
+  .settingsSupport {
+    width: 28rem;
+  }
+  .profileForm{
+    &_content {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

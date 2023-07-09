@@ -1,0 +1,201 @@
+@import '../../../styles/founds/mixins';
+@import '../../../styles/founds/variables';
+
+.header {
+  @include widthHeight(100%, 8.8rem);
+
+  position: relative;
+
+  &_innerBox {
+    @include absolute(0, null, null, 0);
+    @include widthHeight(100%, 100%);
+
+    z-index: 4;
+    background-color: rgb(234, 237, 247);
+    box-shadow: 0 -0.2rem 0.6rem rgba(37, 34, 119, 1);
+  }
+
+  &_content {
+    @include absolute(0, null, null, 0);
+    @include widthHeight(100%, 100%);
+    @include flexCentered;
+
+    padding: 2.3rem 0;
+    opacity: 1;
+    z-index: 5;
+  }
+
+  &_logo {
+    margin-right: 20.5rem;
+  }
+
+  &_menuBtn {
+    @include widthHeight(4rem, 3.4rem);
+    @include backgroundIMG(3.4rem);
+
+    display: none;
+
+    // background-image: url(/src/assets/icon_svg/header_menu_btn.svg);
+    background-image: url(../../../assets/icon_svg/header_menu_btn.svg);
+    cursor: pointer;
+
+    &:hover {
+      // background-image: url(/src/assets/icon_svg/header_menu_btn__hover.svg);
+      background-image: url(../../../assets/icon_svg/header_menu_btn__hover.svg);
+    }
+
+    &__open {
+      // background-image: url(/src/assets/icon_svg/header_menu_btn__hover.svg);
+      background-image: url(../../../assets/icon_svg/header_menu_btn__hover.svg);
+    }
+  }
+
+  &_menu {
+    @include absolute(null, 0, 100%);
+    @include widthHeight(100%);
+
+    display: none;
+    background-color: rgb(232, 235, 245);
+    z-index: 3;
+    transition: transform 0.5s linear;
+
+    &__open {
+      transform: translateY(calc(100% + 8.8rem));
+      transition: transform 0.5s linear;
+    }
+
+    &_shutter {
+      @include absolute(1.2rem, 1.2rem);
+      @include widthHeight(2.8rem, 2.8rem);
+    }
+
+    &_nav {
+      padding: 4rem;
+    }
+    &_list {
+      width: 100%;
+    }
+    &_item {
+      margin-bottom: 1.6rem;
+      padding: 0.8rem;
+      color: $blue;
+      border: 0.1rem solid rgb(232, 235, 245);
+      border-radius: 0.6rem;
+      cursor: pointer;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        border: 0.1rem solid $blue;
+      }
+    }
+    &_link {
+      @include text(1.4rem, 2rem);
+
+      display: inline-block;
+      width: 100%;
+    }
+    &_btn {
+      @include widthHeight(16rem, 4rem);
+
+      margin-bottom: 1.6rem;
+      transition: transform 0.3s linear;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s linear;
+      }
+    }
+  }
+}
+
+.nav {
+  @include flexCentered;
+
+  &_list {
+    @include flexCentered;
+    @include widthHeight(31rem);
+
+    margin-right: 13.8rem;
+
+    &_item {
+      margin-right: 2.6rem;
+      color: $blue;
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      letter-spacing: 0.02rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &_buttons {
+    @include flexCentered(row, center, space-between);
+    @include widthHeight(max-content, 4.2rem);
+    @include text(1.4rem, 1.8rem, 600);
+
+    gap: 1.2rem;
+    min-width: 22rem;
+
+    &__join {
+      @include widthHeight(12.2rem, 100%);
+      @include text(1.4rem, 1.8rem, 600);
+    }
+    &__login {
+      @include widthHeight(9rem, 100%);
+      @include text(1.4rem, 1.8rem, 600);
+    }
+  }
+}
+
+@include mediaQuery(1200px) {
+  .header_logo {
+    margin-right: 14rem;
+  }
+  .nav_list {
+    margin-right: 8rem;
+  }
+}
+@include mediaQuery(1024px) {
+  .header_logo {
+    margin-right: 5rem;
+  }
+  .nav_list {
+    margin-right: 5rem;
+  }
+}
+
+@include mediaQuery(980px) {
+  .header_logo {
+    margin-right: 3rem;
+  }
+  .nav_list {
+    margin-right: 3rem;
+  }
+}
+
+@include mediaQuery(880px) {
+  .header {
+    &_content {
+      @include flexCentered(row, center, space-between);
+      padding: 2.3rem 4rem;
+      opacity: 1;
+    }
+    &_menuBtn {
+      display: block;
+    }
+    &_menu {
+      display: block;
+    }
+  }
+  .nav {
+    display: none;
+  }
+}

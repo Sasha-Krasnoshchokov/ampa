@@ -1,0 +1,41 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.error_page {
+  @include flexCentered(column);
+  @include widthHeight(100vw, 100vh);
+
+  background-color: $red;
+  overflow: hidden;
+
+  &_logo {
+    margin-bottom: 4rem;
+  }
+
+  &_back {
+    @include absolute(1.6rem, null, null, 0);
+  }
+
+  &_title {
+    @include text(4.2rem, 6rem, 700, 0.1rem);
+
+    position: relative;
+    margin-bottom: 2.4rem;
+    width: 20rem;
+    color: $black;
+    text-align: center;
+  }
+
+  &_text {
+    @include text(2.4rem, 3.2rem, 600, 0.1rem);
+
+    margin-bottom: 2.4rem;
+    max-width: 40rem;
+    color: $black;
+    text-align: center;
+
+    &__md {
+      font-size: 1.8rem;
+    }
+  }
+}

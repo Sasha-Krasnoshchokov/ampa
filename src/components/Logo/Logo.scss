@@ -1,0 +1,29 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.logo {
+  @include widthHeight(14.6rem, 3.4rem);
+  @include backgroundIMG(3.4rem);
+
+  &__blue {
+    background-image: url(../../assets/icon_svg/logo_blue.svg);
+  }
+  &__dark {
+    background-image: url(../../assets/icon_svg/logo_dark.svg);
+  }
+  &__white {
+    background-image: url(../../assets/icon_svg/logo_white.svg);
+  }
+
+  &_text {
+    &__blue {
+      background-image: url(../../assets/icon_svg/logo_text_blue.svg);
+    }
+    &__dark {
+      background-image: url(../../assets/icon_svg/logo_text_dark.svg);
+    }
+    &__white {
+      background-image: url(../../assets/icon_svg/logo_text_white.svg);
+    }
+  }
+}

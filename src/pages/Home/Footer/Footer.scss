@@ -1,0 +1,138 @@
+@import '../../../styles/founds/mixins';
+@import '../../../styles/founds/variables';
+
+.footer {
+  @include flexCentered;
+  @include widthHeight(100%, 38rem);
+
+  position: relative;
+  padding: 6rem 0 11rem 0;
+  background-color: $blue;
+  z-index: 3;
+
+  &_text {
+    @include text(1.2rem, 2.1rem, 400, 0.02rem);
+
+    color: $blue_light;
+  }
+
+  &_logoSocials {
+    @include flexCentered(column, flex-start, space-between);
+    @include widthHeight(21.6rem, 100%);
+
+    margin-right: 7.4rem;
+    padding: 0.2rem;
+
+    &__logo {
+      @include flexCentered(column, flex-start, space-between);
+
+      gap: 1.4rem;
+    }
+    &__socials {
+      @include flexCentered(row, center, flex-start);
+
+      gap: 3rem;
+    }
+  }
+
+  &_social_icon {
+    @include widthHeight(3.2rem, 3.2rem);
+    @include backgroundIMG(3.2rem);
+
+    &__facebook {
+      background-image: url('../../../assets/icon_svg/facebook__bg_white.svg');
+    }
+
+    &__instagram {
+      background-image: url('../../../assets/icon_svg/instagram__bg_white.svg');
+    }
+
+    &__twitter {
+      background-image: url('../../../assets/icon_svg/twitter__bg_white.svg');
+    }
+  }
+
+  &_nav {
+    @include flexCentered(row, flex-start);
+    @include widthHeight(30rem, 100%);
+
+    margin-right: 14rem;
+
+    &_list {
+      @include flexCentered(column, flex-start, space-between);
+      @include widthHeight(50%, 14.4rem);
+    }
+  }
+
+  &_buttons {
+    @include flexCentered(column, flex-start, space-between);
+    @include widthHeight(23.6rem, 100%);
+
+    &__join {
+      @include flexCentered(row, center, flex-end);
+      @include widthHeight;
+
+      &_btn {
+        @include flexCentered;
+        @include widthHeight(13.2rem, 4.2rem);
+        @include text(1.4rem, 1.8rem, 600);
+      }
+    }
+
+    &__store {
+      @include flexCentered;
+
+      gap: 1.4rem;
+
+      &_icon {
+        @include backgroundIMG(3.5rem);
+      }
+
+      &_googlePlay {
+        @include widthHeight(11.7rem, 3.5rem);
+
+        background-image: url('../../../assets/icon_png/google_play.png');
+      }
+
+      &_appStore {
+        @include widthHeight(10.5rem, 3.5rem);
+
+        background-image: url('../../../assets/icon_png/app_store.png');
+      }
+    }
+  }
+
+  @include mediaQuery(1080px) {
+    &_logoSocials {
+      margin-right: 3rem;
+    }
+    &_nav {
+      margin-right: 4rem;
+    }
+  }
+  @include mediaQuery(880px) {
+    padding: 6rem 4rem;
+    &_nav {
+      flex-direction: column;
+      width: 16rem;
+      &_list {
+        width: 100%;
+        &:first-child {
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
+    &_buttons {
+      width: max-content;
+      &__store {
+        flex-direction: column;
+      }
+    }
+  }
+  @include mediaQuery(600px) {
+    height: 28rem;
+    &_nav {
+      display: none;
+    }
+  }
+}

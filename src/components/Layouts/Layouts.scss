@@ -1,0 +1,191 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.layout {
+  @include absolute(0, 0);
+  @include widthHeight(100vw, 100vh);
+
+  overflow: hidden;
+
+  &_white {
+    @include absolute(0, 0);
+    @include widthHeight(100%, 100%);
+
+    background-color: $white;
+  }
+
+  &_spot {
+    background-color: $blue;
+    z-index: 1;
+
+    &__top {
+      @include absolute(-15.2rem, null, null, -15.7rem);
+      @include widthHeight(57rem, 41rem);
+
+      border-radius: 0 0 50% 0;
+      filter: blur(267px);
+    }
+
+    &__bottom {
+      @include absolute(null, -10.5rem, -6.8rem, null);
+      @include widthHeight(33.5rem, 24.1rem);
+
+      border-radius: 50% 0 0 0;
+      filter: blur(167px);
+    }
+  }
+
+  &_logo {
+    @include absolute(2.3rem, null, null, 10rem);
+
+    z-index: 2;
+  }
+
+  &_content {
+    @include widthHeight(100%, 100%);
+
+    position: relative;
+    padding: 8rem 4rem 2rem 4rem;
+    overflow-y: auto;
+    z-index: 5;
+  }
+
+  &_dashboard {
+    @include flexCentered(row, flex-start, flex-start);
+    @include widthHeight(100vw, 100vh);
+
+    position: relative;
+    font-family: 'DM Sans', "Poppins", sans-serif;
+    background: linear-gradient(180deg, rgba(247, 249, 250, 0) 0%, #F7F9FA 100%);
+
+    &_sideBar {
+      @include widthHeight(26rem, 100%);
+
+      min-width: 26rem;
+    }
+
+    &_box {
+      @include flexCentered(column, center, flex-start);
+      @include widthHeight(100%, 100%);
+
+      padding: 0 2.4rem;
+      overflow: hidden;
+    }
+
+    &_topBar {
+      padding: 2.4rem 0;
+      width: 100%;
+    }
+
+    &_content {
+      @include widthHeight(100%, 100%);
+
+      overflow: hidden;
+    }
+  }
+
+  &_transparent {
+    @include absolute(0, 0);
+    @include widthHeight(100%, 100vh);
+
+    background-color: $black;
+    opacity: 0.4;
+
+    &_content {
+      @include flexCentered(row, flex-start);
+      @include widthHeight(100%, 100%);
+
+      position: relative;
+      padding: 4rem;
+      overflow-y: auto;
+      z-index: 10;
+    }
+  }
+
+  @include mediaQuery(1200px) {
+    &_logo {
+      left: 6rem;
+    }
+  }
+
+  @include mediaQuery(1024px) {
+    &_dashboard {
+      &_topBar {
+        padding-bottom: 1.2rem;
+      }
+    }
+  }
+
+  @include mediaQuery(880px) {
+    &_dashboard {
+      &_sideBar {
+        @include absolute(0, null, null, -30rem);
+
+        z-index: 20;
+        transition: transform 0.4s linear;
+        
+        &__open {
+          transform: translateX(30rem);
+          transition: transform 0.4s linear;
+        }
+      }
+    }
+  }
+
+  @include mediaQuery(600px) {
+    &_logo {
+      left: 4rem;
+    }
+    &_content {
+      padding: 8rem 0 0 0;
+    }
+    &_dashboard {
+      &_box {
+        padding: 0 1.6rem;
+      }
+    }
+    &_transparent {
+      &_content {
+        padding: 2.4rem 1.6rem;
+      }
+    }
+  }
+}
+
+.smallLayout {
+  @include widthHeight(20rem, 20rem);
+
+  position: fixed;
+  right: -50%;
+  bottom: 10%;
+  min-width: 10rem;
+
+  animation: open 10s linear;
+  z-index: 100;
+
+  &_content {
+    @include flexCentered(row, flex-start);
+    @include widthHeight(100%, 100%);
+
+    position: relative;
+  }
+
+  @keyframes open {
+    0% {
+      right: -20%;
+      bottom: 10%;
+    }
+    5% {
+      right: 5%;
+      bottom: 10%;
+    }
+    90% {
+      right: 5%;
+      bottom: 10%;
+    }
+    100% {
+      right: 5%;
+      bottom: -50%;
+    }
+  }
+}

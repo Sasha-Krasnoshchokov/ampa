@@ -1,0 +1,24 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.registration {
+  @include flexCentered;
+  @include widthHeight(100%, 100vh);
+
+  position: relative;
+  overflow: hidden;
+
+  &_content {
+    @include flexCentered;
+
+    padding: 0 6rem 2rem 6rem;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  @include mediaQuery(1200px) {
+    &_content {
+      padding: 0 2rem 2rem 2rem;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.comment {
+  @include flexCentered(column, flex-start, space-between);
+  @include widthHeight(100%, 100%);
+
+  padding: 4rem 3.2rem;
+  font-size: 1.8rem;
+  border: 0.1rem solid $gray_light;
+  box-shadow: 0 0.5rem 1.4rem rgba(8, 15, 52, 0.04);
+  border-radius: 2rem;
+
+  &_text {
+    @include text(inherit, 3rem);
+
+    color: $gray;
+  }
+
+  @include mediaQuery(600px) {
+    padding: 2rem 1.6rem;
+  }
+}

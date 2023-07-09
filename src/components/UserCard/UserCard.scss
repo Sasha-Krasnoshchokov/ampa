@@ -1,0 +1,27 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.userCard {
+  @include flexCentered;
+  @include widthHeight(100%);
+
+  &_desc {
+    @include flexCentered(column, flex-start);
+    @include widthHeight;
+
+    margin-left: 2rem;
+  }
+
+  &_name {
+    @include text(inherit, 2rem, 700);
+
+    color: $blue;
+  }
+
+  &_info {
+    @include text(inherit, 2rem);
+
+    margin-top: 0.8rem;
+    color: $gray;
+  }
+}

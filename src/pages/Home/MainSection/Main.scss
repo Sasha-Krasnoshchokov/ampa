@@ -1,0 +1,968 @@
+@import '../../../styles/founds/mixins';
+@import '../../../styles/founds/variables';
+
+.main {
+  @include flexCentered(column, center, flex-start);
+  @include widthHeight(100%);
+
+  position: relative;
+  padding: 0 6rem 0 6rem;
+  min-height: calc(100vh - 38rem - 8.8rem);
+  background-color: $blue_light_extra;
+
+  &_title {
+    @include text(3.6rem, 4.8rem, 700);
+
+    text-align: center;
+    z-index: 3;
+
+    &__blue {
+      color: $blue;
+    }
+  }
+
+  &_text {
+    @include text(1.8rem, 3.2rem);
+
+    text-align: center;
+  }
+
+  &_section {
+    @include widthHeight;
+
+    margin-bottom: 10rem;
+  }
+
+  &_dots {
+    @include widthHeight(1.2rem, 1.2rem);
+    @include backgroundIMG(1.2rem);
+    cursor: pointer;
+
+    &__passive {
+      background-image: url(../../../assets/icon_svg/dot__passive.svg);
+    }
+    &__active {
+      background-image: url(../../../assets/icon_svg/dot__active.svg);
+    }
+  }
+
+  &_figures {
+    @include flexCentered;
+
+    gap: 7.2rem;
+    height: 12rem;
+
+    &_title {
+      @include text(3.2rem, 4rem, 700, 0.02rem);
+
+      color: $black;
+    }
+
+    &_content {
+      @include flexCentered(column);
+
+      &_title {
+        @include text(2rem, 2.8rem, 600, 0.02rem);
+
+        color: $blue;
+      }
+      &_numbers {
+        @include text(2.4rem, 2.4rem, 700, 0.04rem);
+
+        color: $gray;
+      }
+
+      &_icon {
+        @include widthHeight(3.2rem, 3.2rem);
+        @include backgroundIMG(3.2rem);
+
+        margin-bottom: 0.8rem;
+
+        &_whistle {
+          background-image: url(../../../assets/icon_svg/whistle1.svg);
+        }
+        &_ball {
+          background-image: url(../../../assets/icon_svg/ball_black.svg);
+        }
+        &_leagues {
+          background-image: url(../../../assets/icon_svg/league.svg);
+        }
+        &_cup {
+          background-image: url(../../../assets/icon_svg/cup.svg);
+        }
+      }
+    }
+  }
+
+  &_discover {
+    @include flexCentered(row, center, flex-start);
+    @include widthHeight(102.6rem);
+
+    position: relative;
+    min-height: 59.6rem;
+
+    &__phones {
+      @include absolute(0, 0);
+      @include widthHeight(50.4rem, 59.6rem);
+      @include backgroundIMG(50.4rem);
+
+      background-image: url(../../../assets/icon_png/phones__turnLeft.png);
+    }
+
+    &__description {
+      @include flexCentered(column, flex-start, space-between);
+      @include widthHeight(50.6rem, 24rem);
+    }
+
+    &__text {
+      @include text(4.4rem, 5.4rem, 700, 0.02rem);
+
+      color: $blue;
+      z-index: 2;
+    }
+
+    &__button {
+      @include flexCentered;
+      @include widthHeight(22.8rem, 4.2rem);
+
+      z-index: 2;
+    }
+
+    &__spot {
+      @include absolute(28rem, -10rem);
+      @include widthHeight(61rem, 44rem);
+
+      border-radius: 50%;
+      background-color: $blue;
+      filter: blur(20rem);
+    }
+  }
+
+  &_about {
+    @include flexCentered(column, center, flex-start);
+
+    &_title {
+      @extend .main_title;
+
+      &__teams {
+        color: $blue;
+      }
+
+      &__referees {
+        color: $red;
+      }
+    }
+
+    &_text {
+      @include text(1.8rem, 3.2rem);
+
+      margin-bottom: 2.4rem;
+      text-align: center;
+    }
+    &__teams {
+      max-width: 47rem;
+    }
+    &__referees {
+      max-width: 56rem;
+    }
+
+    &_content {
+      @include flexCentered(row, center, flex-start);
+      @include widthHeight(101rem, 58.8rem);
+
+      position: relative;
+      padding: 9rem 9rem 7.2rem 9rem;
+      background-color: $blue;
+      border-radius: 1.6rem;
+      overflow: hidden;
+
+      &__reticle {
+        @include absolute(0.8rem, 17.8rem);
+        @include widthHeight(51.6rem, 51.6rem);
+        @include backgroundIMG(51.6rem);
+
+        background-image: url('../../../assets/icon_svg/reticle.svg');
+        opacity: 0.5;
+      }
+      &__phones {
+        @include absolute(3.4rem, 4.1rem);
+        @include widthHeight(47.7rem, 55.4rem);
+        @include backgroundIMG(47.7rem);
+
+        &_teams {
+          background-image: url('../../../assets/icon_png/phones_about_teams.png');
+        }
+        &_referees {
+          background-image: url('../../../assets/icon_png/phones_about_referees.png');
+        }
+      }
+    }
+    &_info {
+      @include flexCentered(column, flex-start, space-between);
+      @include widthHeight(32rem, 100%);
+
+      z-index: 2;
+
+      &_list {
+        @include flexCentered(column, center, space-between);
+        @include widthHeight(100%, 32.4rem);
+      }
+
+      &_item {
+        @include flexCentered(row, flex-start, space-between);
+        @include widthHeight(100%, 8.8rem);
+
+        color: $blue_light_extra;
+
+        &__icon {
+          @include flexCentered;
+          @include widthHeight(5.7rem, 5.7rem);
+
+          background-color: $blue_light_extra;
+          border-radius: 0.8rem;
+
+          &_bg {
+            @include widthHeight(3.2rem, 3.2rem);
+            @include backgroundIMG(3.2rem);
+          }
+
+          &_createTeam {
+            background-image: url(../../../assets/icon_svg/create_team.svg);
+          }
+          &_ball {
+            background-image: url(../../../assets/icon_svg/ball.svg);
+          }
+          &_whistle {
+            background-image: url(../../../assets/icon_svg/whistle_blue.svg);
+          }
+          &_shield {
+            background-image: url(../../../assets/icon_svg/shield.svg);
+          }
+          &_location {
+            background-image: url(../../../assets/icon_svg/location_blue.svg);
+          }
+          &_graph {
+            background-image: url(../../../assets/icon_svg/graph.svg);
+          }
+        }
+        &__desc {
+          @include flexCentered(column, flex-start, space-between);
+          @include widthHeight(24rem);
+        }
+        &__title {
+          @include text(2.2rem, 3rem, 600);
+        }
+        &__text {
+          @include text(1.6rem, 2.4rem);
+        }
+      }
+
+      &_button {
+        @include flexCentered;
+        @include widthHeight(22.2rem, 4.2rem);
+        @include text(1.4rem, 1.8rem, 600);
+      }
+    }
+
+    &_switcher {
+      @include flexCentered(row, center, space-between);
+      @include widthHeight(3.2rem);
+
+      margin-top: 2.4rem;
+
+      &_dot__passive {
+        @include widthHeight(1.2rem, 1.2rem);
+        @include backgroundIMG(1.2rem);
+  
+        background-image: url(../../../assets/icon_svg/dot__passive.svg);
+        cursor: pointer;
+      }
+      &_dot__active {
+        @include widthHeight(1.2rem, 1.2rem);
+        @include backgroundIMG(1.2rem);
+  
+        background-image: url(../../../assets/icon_svg/dot__active.svg);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &_why {
+    @include flexCentered(column, center, flex-start);
+
+    position: relative;
+    min-height: 77rem;
+
+    &_text {
+      max-width: 63.2rem;
+      margin-bottom: 6.3rem;
+      z-index: 2;
+    }
+
+    &_content {
+      @include flexCentered;
+      @include widthHeight(95.5rem, 59rem);
+
+      &__bg {
+        @include widthHeight(40rem, 100%);
+
+        position: relative;
+        z-index: 0;
+
+        &_spot {
+          @include widthHeight(50rem, 60rem);
+
+          background-color: $blue;
+          border-radius: 50%;
+          filter: blur(25rem);
+
+          &_top {
+            @include absolute(-20rem, null, null, -20rem);
+          }
+          &_bottom {
+            @include absolute(null, -7rem, -5rem, null);
+          }
+        }
+
+        &_player {
+          @include absolute(null, 0, 0);
+          @include widthHeight(29rem, 63.7rem);
+          @include backgroundIMG(29rem);
+      
+          background-image: url(../../../assets/icon_png/player.png);
+          z-index: 2
+        }
+
+        &_ball {
+          @include absolute(-10rem, null, null, 3rem);
+          @include widthHeight(8.5rem, 8.7rem);
+          @include backgroundIMG(8.5rem);
+      
+          background-image: url(../../../assets/icon_png/ball.png);
+          z-index: 2
+        }
+      }
+    }
+
+    &_info {
+      @include flexCentered(column, center,space-between);
+      @include widthHeight(55rem, 100%);
+
+      padding-bottom: 4.5rem;
+      z-index: 2;
+
+      &_row {
+        @include flexCentered(row, center, flex-start);
+        @include widthHeight;
+
+        gap: 30px;
+      }
+
+      &_box {
+        @include flexCentered(column, center, flex-start);
+        @include widthHeight(23rem, 25.8rem);
+
+        padding: 2.4rem 2rem 0 2rem;
+        color: $black;
+        background-color: $white;
+        box-shadow: 0px 15px 80px rgba(174, 174, 174, 0.15);
+        border-radius: 1.6rem;
+
+        &__title {
+          @include text(1.6rem, 2.4rem, 700);
+
+          margin-bottom: 2.4rem;
+          text-align: center;
+        }
+
+        &__text {
+          @include text(1.4rem, 2.1rem, 400, 0.02rem);
+
+          text-align: center;
+        }
+      }
+
+      &__iconBox {
+        @include flexCentered;
+        @include widthHeight(5.7rem, 5.7rem);
+
+        margin-bottom: 1.5rem;
+        background: rgba(192, 214, 255, 0.3);
+        border-radius: 0.8rem;
+      }
+      &__icon {
+        @include widthHeight(3.2rem, 3.2rem);
+        @include backgroundIMG(3.2rem);
+
+        &_verified {
+          background-image: url(../../../assets/icon_svg/verified.svg);
+        }
+        &_award {
+          background-image: url(../../../assets/icon_svg/award.svg);
+        }
+        &_support {
+          background-image: url(../../../assets/icon_svg/support.svg);
+        }
+        &_intelligence {
+          background-image: url(../../../assets/icon_svg/intelligence.svg);
+        }
+      }
+    }
+  }
+
+  &_faq {
+    @include flexCentered(column);
+    @include widthHeight(calc(100% + 12rem));
+
+    padding: 5rem 0;
+    background-color: $blue_light;
+    z-index: 3;
+  }
+
+  &_testimonials {
+    @include flexCentered(column);
+
+    min-height: 35.2rem;
+
+    &_content {
+      @include flexCentered;
+      @include widthHeight(max-content, max-content);
+
+      gap: 1.6rem;
+    }
+
+    &_comments {
+      @include flexCentered;
+      @include widthHeight(max-content, max-content);
+
+      margin: 2.4rem 0;
+      gap: 3rem;
+
+      &_selector {
+        @include backgroundIMG(5.2rem);
+
+        &__prev {
+          background-image: url(../../../assets/icon_svg/prev_btn.svg);
+          cursor: pointer;
+        }
+        &__next {
+          background-image: url(../../../assets/icon_svg/next_btn.svg);
+          cursor: pointer;
+        }
+      }
+    }
+
+    &_comment {
+      @include flexCentered;
+      @include widthHeight(49rem, 24.8rem);
+    }
+
+    &_switcher {
+      @include flexCentered(row, center, space-between);
+      @include widthHeight(4.8rem, 1.2rem);
+    }
+  }
+
+  &_subscription {
+    @include flexCentered(column, center, flex-start);
+
+    &_text {
+      @include widthHeight(36rem, max-content);
+
+      margin-bottom: 0.8rem;
+      color: $gray;
+    }
+
+    &_container {
+      position: relative;
+      @include flexCentered(row, center, flex-end);
+      @include widthHeight(92rem, 58.4rem);
+      @include backgroundIMG(58.4rem);
+
+      padding: 14.2rem 9rem;
+      background-image: url(../../../assets/icon_svg/subscription_bg.svg);
+
+      &__reticle_bg {
+        @include absolute(null, -3rem, -3rem);
+        @include widthHeight(51.5rem, 51.5rem);
+        @include backgroundIMG(51.5rem);
+
+        background-image: url(../../../assets/icon_svg/reticle.svg);
+        opacity: 0.5;
+        z-index: 1;
+      }
+      &__phone_bg {
+        @include absolute(0, null, null, -30.8rem);
+        @include widthHeight(76.2rem, 58.4rem);
+        @include backgroundIMG(58rem);
+
+        background-image: url(../../../assets/icon_png/phone_subscription.png);
+        z-index: 2;
+      }
+    }
+
+    &_content {
+      @include flexCentered(column, flex-start, space-between);
+      @include widthHeight(max-content, 100%);
+
+      z-index: 3;
+
+      &__cost {
+        &_box {
+          @include flexCentered(row, center, space-between);
+          @include widthHeight(40.4rem, 9.6rem);
+
+          padding: 2rem;
+          background-color: $white;
+          box-shadow: 0 1.5rem 8rem rgba(174, 174, 174, 0.15);
+          border-radius: 1.6rem;
+
+          &:last-child {
+            margin-bottom: 4rem;
+          }
+        }
+
+        &_title {
+          @include flexCentered;
+          @include widthHeight(max-content);
+        }
+
+        &_icon {
+          @include flexCentered;
+          @include widthHeight(5.7rem, 5.7rem);
+
+          margin-right: 1.2rem;
+          background-color: rgba(192, 214, 255, 0.3);
+          border-radius: 0.8rem;
+
+          &_monthly {
+            @include widthHeight(3.2rem, 3.2rem);
+            @include backgroundIMG(3.2rem);
+
+            background-image: url(../../../assets/icon_svg/calender_monthly.svg);
+          }
+
+          &_annually {
+            @include widthHeight(3.2rem, 3.2rem);
+            @include backgroundIMG(3.2rem);
+
+            background-image: url(../../../assets/icon_svg/calender_annually.svg);
+          }
+        }
+
+        &_text {
+          @include text(2.2rem, 3.2rem, 600, 0.054rem);
+
+          color: $blue;
+        }
+
+        &_text {
+          @include text(2.2rem, 3.2rem, 600, 0.054rem);
+
+          color: $blue;
+        }
+
+        &_price_box {
+          @include flexCentered(column, flex-end);
+          @include widthHeight(max-content);
+        }
+        &_price {
+          @include text(3.6rem, 4rem, 700);
+
+          color: $black;
+        }
+        &_price_per_month {
+          @include text(1.4rem, 3.2rem, 400, 0.054rem);
+
+          color: $gray;
+        }
+      }
+
+      &_stores {
+        @include flexCentered;
+        @include widthHeight(max-content);
+
+        &__google {
+          @include widthHeight(11.8rem, 3.6rem);
+          @include backgroundIMG(3.6rem);
+
+          margin-right: 1.4rem;
+          background-image: url(../../../assets/icon_png/google_play.png);
+        }
+
+        &__apple {
+          @include widthHeight(10.4rem, 3.6rem);
+          @include backgroundIMG(3.6rem);
+
+          background-image: url(../../../assets/icon_png/app_store.png);
+        }
+      }
+    }
+  }
+
+  &_news {
+    position: relative;
+    @include flexCentered(column, flex-start, flex-start);
+    @include widthHeight(97.4rem, max-content);
+
+    padding-top: 8rem;
+    min-height: 34.8rem;
+
+    &_manWithPhone {
+      @include absolute(0, 0);
+      @include widthHeight(26.2rem, 34.8rem);
+      @include backgroundIMG(26.2rem);
+
+      background-image: url(../../../assets/icon_png/man_with_phone.png);
+      z-index: 1;
+    }
+
+    &_whiteSpot {
+      @include absolute(15rem, -8rem);
+      @include widthHeight(26.2rem, 34.8rem);
+
+      background-color: $white;
+      filter: blur(3.7rem);
+      z-index: 2;
+    }
+
+    &_text {
+      @include widthHeight(58rem, max-content);
+      @include text(1.8rem, 3.6rem);
+
+      margin-bottom: 2.4rem;
+      color: $gray;
+      text-align: left;
+      z-index: 3;
+    }
+
+    &_inputBox {
+      @include flexCentered(row, center, space-between);
+      @include widthHeight(60rem, 7.6rem);
+
+      margin-bottom: 2.8rem;
+      padding: 1.1rem 2rem;
+      background-color: $white;
+      border: 1px solid $gray_light_extra;
+      border-radius: 6rem;
+      box-shadow: 0 0.8rem 2.5rem rgba(13, 10, 44, 0.06);
+      z-index: 3;
+    }
+
+    &_input {
+      @include widthHeight(30rem, 2rem);
+      @include text(1.8rem, 2rem);
+
+      padding-left: 1rem;
+      color: $black;
+      text-align: left;
+    }
+
+    &_subscribeBtn {
+      @include flexCentered;
+      @include widthHeight(14.4rem, 5.6rem);
+      @include text(1.8rem, 2rem, 700);
+
+      min-width: 12rem;
+      color: $blue_light;
+      background-color: $blue;
+      border-radius: 5.6rem;
+      cursor: pointer;
+    }
+
+    &_info {
+      @include flexCentered(row, center, flex-start);
+      @include widthHeight(54rem, 2.2rem);
+
+      z-index: 3;
+
+      &_icon {
+        @include backgroundIMG;
+        @include widthHeight(2.2rem, 2.2rem);
+
+        margin-right: 0.8rem;
+        background-image: url(../../../assets/icon_svg/success_blue.svg);
+      }
+
+      &_text {
+        @include text(1.6rem, 1.8rem);
+
+        color: $gray;
+
+        &__blue {
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  @include mediaQuery(1200px) {
+    &_testimonials {
+      &_comment {
+        @include widthHeight(40rem, 32rem);
+      }
+    }
+    &_subscription {
+      &_container {
+        @include widthHeight(70rem, 44rem);
+        padding: 6rem 4rem;
+        min-height: 44rem;
+
+        &__phone_bg {
+          @include widthHeight(57rem, 44rem);
+          top: -5rem;
+          left: -18rem;
+        }
+      }
+    }
+    &_news {
+      width: 70rem;
+    }
+  }
+
+  @include mediaQuery(1080px) {
+    &_figures {
+      gap: 5rem;
+    }
+    &_discover {
+      width: 100%;
+      min-height: 47.4rem;
+      &__phones {
+        @include widthHeight(40rem, 47.4rem);
+      }
+      &__spot {
+        @include absolute(26rem, -5rem);
+        @include widthHeight(50rem, 30rem);
+        filter: blur(20rem);
+      }
+    }
+    &_about {
+      &_content {
+        @include widthHeight(100%, 46.2rem);
+        padding: 6rem 6rem 3rem 6rem;
+        &__reticle {
+          @include absolute(0.8rem, 10rem);
+          @include widthHeight(40rem, 40rem);
+        }
+        &__phones {
+          @include absolute(3.4rem, 2.1rem);
+          @include widthHeight(37rem, 42.8rem);
+          min-height: 37rem;
+        }
+      }
+    }
+    &_why{
+      &_content {
+        width: 100%;
+        position: relative;
+        &__bg {
+          @include absolute(0, 25%);
+          &_ball {
+            top: -8rem;
+          }
+        }
+      }
+      &_info {
+        width: max-content;
+      }
+    }
+    &_testimonials {
+      &_comments {
+        @include widthHeight(60rem);
+        overflow: hidden;
+        overflow-y: auto;
+      }
+      &_comment {
+        @include widthHeight(44rem, 40rem);
+      }
+    }
+  }
+
+  @include mediaQuery(880px) {
+    padding: 4rem 2rem 0 2rem;
+    &_figures {
+      display: none;
+    }
+    &_discover {
+      padding-left: 6rem;
+      &__text {
+        @include text(3.2rem, 4.4rem, 600, 0.02rem);
+        max-width: 30rem;
+      }
+    }
+    &_about {
+      &_content {
+        @include widthHeight(100%, 46.2rem);
+        padding: 4rem 3rem 2rem 3rem;
+
+        &__phones {
+          top: 6.2rem;
+          right: -5rem;
+          min-height: 24rem;
+          &_teams {
+            @include widthHeight(24rem, 40rem);
+            background-image: url('../../../assets/icon_png/phone_about_teams.png');
+          }
+          &_referees {
+            @include widthHeight(24rem, 40rem);
+            background-image: url('../../../assets/icon_png/phone_about_referees.png');
+          }
+        }
+      }
+    }
+    &_faq {
+      width: calc(100% + 4rem);
+    }
+    &_testimonials {
+      &_comments {
+        @include flexCentered(row, center, flex-start);
+        @include widthHeight(40rem);
+      }
+      &_comment {
+        min-width: 40rem;
+      }
+    }
+    &_subscription {
+      &_container {
+        @include widthHeight(54rem, 34rem);
+        padding: 2.4rem 1.6rem;
+        min-height: 34rem;
+
+        &__reticle_bg {
+          @include widthHeight(30rem, 30rem);
+        }
+        &__phone_bg {
+          @include widthHeight(44rem, 34rem);
+          top: -10rem;
+          left: -16rem;
+        }
+      }
+      &_content {
+        &__cost {
+          &_box {
+            @include widthHeight(32rem, 7.6rem);
+            padding: 1rem;
+          }
+          &_price {
+            font-size: 2.4rem;
+          }
+        }
+      }
+    }
+    &_news {
+      width: 56rem;
+      &_text {
+        width: 100%;
+      }
+      &_inputBox {
+        width: 100%;
+      }
+      &_info {
+        width: 100%;
+        &_text {
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  @include mediaQuery(740px) {
+    &_section {
+      margin-bottom: 6rem;
+    }
+    &_discover {
+      padding-left: 0;
+      &__description {
+        align-items: center
+      }
+      &__text {
+        @include text(3.2rem, 4.4rem, 600, 0.02rem);
+        max-width: 30rem;
+        color: $blue_light_extra;
+        background-color: $blue;
+        border-radius: 0.8rem;
+        text-align: center;
+      }
+    }
+    &_about {
+      &_content {
+        justify-content: center;
+      }
+      &_info {
+        align-items: center;
+        &_item {
+          background-color: $blue;
+          border-radius: 0.8rem;
+        }
+      }
+    }
+    &_news {
+      width: 100%;
+    }
+  }
+
+  @include mediaQuery(600px) {
+    &_about {
+      &_content {
+        padding: 4rem 1.6rem 1rem 1.6rem;
+        overflow: hidden;
+      }
+    }
+    &_why{
+      &_content {
+        height: max-content;
+      }
+      &_info {
+        gap: 3rem;
+        &_box {
+          @include widthHeight(16rem, 34rem);
+          padding: 1.2rem;
+        }
+      }
+    }
+    &_faq {
+      padding: 5rem 1rem;
+      width: calc(100% + 4rem);
+    }
+    &_testimonials {
+      &_comments {
+        @include widthHeight(22rem);
+      }
+      &_comment {
+        min-width: 22rem;
+      }
+    }
+    &_subscription {
+      &_text {
+        width: 30rem;
+      }
+      &_container {
+        @include widthHeight(100%, 28rem);
+        justify-content: center;
+        padding: 1.4rem 1rem;
+        background-size: contain;
+
+        &__phone_bg {
+          @include widthHeight(44rem, 34rem);
+          left: -10rem;
+        }
+      }
+      &_content {
+        &__cost {
+          &_box {
+            @include widthHeight(32rem, 7.6rem);
+            padding: 1rem;
+          }
+          &_price {
+            font-size: 2.4rem;
+          }
+        }
+      }
+    }
+    &_news {
+      &_input {
+        width: 100%;
+      }
+    }
+  }
+}

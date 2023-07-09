@@ -1,0 +1,291 @@
+@import '../../../styles/founds/mixins';
+@import '../../../styles/founds/variables';
+
+.box {
+  @include flexCentered(row, center, flex-start);
+  &__md {
+    @include widthHeight(100%, 4.4rem);
+  }
+  &__lg {
+    @include widthHeight(100%, 6rem);
+  }
+  &__xl {
+    @include widthHeight(100%, 8rem);
+  }
+}
+
+.text {
+  &__md {
+    @include text(1.2rem, 1.6rem, 400, 0.01rem);
+  }
+  &__lg {
+    @include text(1.4rem, 2rem, 400, 0.02rem);
+  }
+  &__xl {
+    @include text(1.8rem, 2.2rem, 600, 0.03rem);
+  }
+}
+
+.label {
+  position: relative;
+  width: 100%;
+  text-align: left;
+
+  &__row {
+    @include flexCentered(row, center, flex-start);
+  }
+  &__column {
+    @include flexCentered(column, flex-start);
+  }
+
+  &__default {
+    color: $black;
+  }
+  &__filled {
+    color: $gray;
+  }
+  &__correct {
+    color: $green;
+  }
+  &__incorrect {
+    color: $red;
+  }
+}
+
+.checkbox {
+  margin-right: 0.8rem;
+  color: $black;
+  background-color: $white;
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: 0 0 1rem rgba(174, 174, 174, 0.8);
+    outline: none;
+  }
+
+  &_label {
+    @include flexCentered;
+    @include text(1.4rem, 2.1rem, 400, 0.02rem);
+
+    width: max-content;
+    color: $gray;
+    text-align: left;
+    cursor: pointer;
+  }
+}
+
+.input {
+  margin-top: 0.5rem;
+  padding: 0 1.6rem;
+  color: $black;
+  text-align: left;
+  background-color: $white;
+  border: 0.1rem solid $gray_secondary;
+  border-radius: 3.5rem;
+
+  &:focus {
+    box-shadow: 0 0 1rem rgba(174, 174, 174, 0.8);
+  }
+
+  &__dark {
+    &::placeholder {
+      color: $black;
+      opacity: 0.9;
+    }
+  }
+  &__gray {
+    &::placeholder {
+      color: $gray;
+      opacity: 1;
+    }
+  }
+
+  &__cvv {
+    font-family: text-security-disc;
+    -webkit-text-security: disc;
+  }
+}
+
+.inputSearch {
+  @extend .input;
+
+  position: relative;
+  padding-left: 3.2rem;
+
+  // background-image: url(/src/assets/icon_svg/search_gray.svg);
+  background-image: url(../../../assets/icon_svg/search_gray.svg);
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: 10px 50%;
+
+  &:hover {
+    // background-image: url(/src/assets/icon_svg/search_black.svg);
+    background-image: url(../../../assets/icon_svg/search_black.svg);
+  }
+  &:focus {
+    // background-image: url(/src/assets/icon_svg/search_blue.svg);
+    background-image: url(../../../assets/icon_svg/search_blue.svg);
+  }
+
+  &_list {
+    @include absolute(85%, 0, null, 0);
+    @include flexCentered(column, center, flex-start);
+
+    padding: 3.2rem 0 1.2rem 0;
+    width: 100%;
+    max-height: 32rem;
+    color: $dark_remotely;
+    background-color: $white;
+    border: 0.1rem solid $gray_secondary;
+    border-radius: 2.4rem;
+    z-index: 10;
+
+    &__loader {
+      @include absolute(0.8rem, null, null, 2rem);
+      @include flexCentered;
+      @include widthHeight(2rem, 2rem);
+    }
+
+    &__addTeam {
+      @include absolute(0.6rem, 4rem);
+      @include flexCentered;
+      @include widthHeight(9rem);
+    }
+
+    &__shutter {
+      @include absolute(0.8rem, 1.2rem);
+      @include flexCentered;
+      @include widthHeight(1.6rem, 1.6rem);
+    }
+  }
+  &_scrollBox {
+    @include widthHeight(100%, 100%);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.button {
+  padding: 0 1.6rem;
+  color: $white;
+  border-radius: 3.5rem;
+  cursor: pointer;
+
+  &__blue {
+    background-color: $blue;
+  }
+
+  &__red {
+    background-color: $red;
+  }
+
+  &:hover {
+    box-shadow: 0 0 1rem rgba(174, 174, 174, 0.8);
+  }
+}
+
+.select {
+  position: relative;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  color: $gray;
+  text-align: left;
+  background-color: $white;
+  border: 0.1rem solid $gray_secondary;
+  border-radius: 3.5rem;
+  // background-image: url(/src/assets/icon_svg/arrow_down.svg);
+  background-image: url(../../../assets/icon_svg/arrow_down.svg);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  transition: all 0.4s linear;
+  cursor: pointer;
+
+  &:hover {
+    // background-image: url(/src/assets/icon_svg/arrow_down__dark.svg);
+    background-image: url(../../../assets/icon_svg/arrow_down__dark.svg);
+    background-position-y: calc(50% + 4px);
+    transition: all 0.4s linear;
+  }
+
+  &:focus {
+    color: $black;
+    box-shadow: 0 0 1rem rgba(174, 174, 174, 0.8);
+  }
+
+  &_options {
+    background-color: $white;
+    cursor: pointer;
+
+    &:hover {
+      font-size: 2.4rem;
+      background-color: $gray;
+      cursor: pointer;
+    }
+  }
+
+  &__dark {
+    color: $black;
+    opacity: 0.9;
+  }
+}
+
+.formix {
+  @include flexCentered(column, center, flex-start);
+  @include widthHeight(100%);
+
+  gap: 1.6rem;
+
+  &_row {
+    @include flexCentered;
+
+    gap: 1.6rem;
+    width: 100%;
+
+    &__rememberForgot {
+      @include flexCentered(row, flex-start, space-between);
+
+      width: 100%;
+      min-width: max-content;
+      color: $black;
+    }
+    &__invitation {
+      @include flexCentered(row, flex-start, flex-start);
+
+      width: 100%;
+      min-width: max-content;
+      color: $blue;
+    }
+
+    @include mediaQuery(500px) {
+      flex-direction: column;
+    }
+  }
+}
+
+.textarea {
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+}
+
+.selectFile {
+  @include flexCentered(column);
+
+  margin-bottom: 2.4rem;
+  cursor: pointer;
+
+  &_input {
+    @include flexCentered(column);
+    @include widthHeight(0.01rem, 0.01rem);
+
+    position: relative;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  &_label {
+    margin-top: 0.8rem;
+  }
+}

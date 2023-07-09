@@ -1,0 +1,15 @@
+@import '../../styles/founds/mixins';
+@import '../../styles/founds/variables';
+
+.shutter {
+  @include widthHeight(100%, 100%);
+  @include backgroundIMG;
+
+  background-image: url(../../assets/icon_svg/shutter.svg);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+    background-image: url(../../assets/icon_svg/shutter__dark.svg);
+  }
+}

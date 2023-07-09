@@ -1,0 +1,109 @@
+
+@import '../../../styles/founds/mixins';
+@import '../../../styles/founds/variables';
+
+.faq {
+  &_content {
+    @include flexCentered(row, center, flex-start);
+    @include widthHeight(101rem, 100%);
+
+    position: relative;
+
+    &_list {
+      @include flexCentered(column, center, space-between);
+      @include widthHeight(49rem, 100%);
+
+      margin-top: 2.4rem;
+    }
+
+    &_item {
+      @include flexCentered(column, flex-start, flex-start);
+      @include widthHeight(100%);
+
+      position: relative;
+      margin-bottom: 2.4rem;
+      padding: 2rem;
+      min-height: 8rem;
+      background-color: $white;
+      box-shadow: 0 0.5rem 1.6rem rgba(8, 15, 52, 0.06);
+      border-radius: 1.6rem;
+
+      &__question {
+        @include flexCentered(row, center, flex-start);
+        @include widthHeight(32rem, 100%);
+        @include text(1.8rem, 2.8rem, 600);
+
+        margin-bottom: 1.4rem;
+        color: $black;
+      }
+
+      &__answer {
+        @include widthHeight(32rem);
+        @include text(1.4rem, 2.1rem);
+
+        color: $gray;
+      }
+
+      &_btn {
+        @include absolute(2rem, 2rem);
+        @include widthHeight(4rem, 4rem);
+        @include backgroundIMG(4rem);
+
+        cursor: pointer;
+
+        &__open {
+          background-image: url(../../../assets/icon_svg/plus_btn.svg);
+        }
+
+        &__close {
+          background-image: url(../../../assets/icon_svg/minus_btn.svg);
+        }
+      }
+    }
+  }
+
+  &_phone {
+    &__box {
+      @include absolute(19.2rem, 0);
+      @include flexCentered(row, center, flex-start);
+      @include widthHeight(49rem, 48.4rem);
+
+      padding: 6.6rem 6.6rem 0 6.6rem;
+      background-color: $white;
+      border-radius: 1.6rem;
+    }
+
+    &__icon {
+      @include widthHeight(35.9rem, 41.7rem);
+      @include backgroundIMG(35.9rem);
+
+      background-image: url(../../../assets/icon_png/phone_half_frontal.png);
+    }
+  }
+
+  @include mediaQuery(1200px) {
+    &_content {
+      justify-content: center;
+      width: 100%;
+    }
+    &_phone {
+      &__box {
+        display: none;
+      }
+    }
+  }
+
+  @include mediaQuery(600px) {
+    &_content {
+      &_list {
+        width: 34rem;
+      }
+      &_item {
+        padding-right: 6.4rem;
+        &__question {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

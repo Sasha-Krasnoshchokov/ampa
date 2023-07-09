@@ -1,0 +1,26 @@
+const ageGroups: Record<number, string> = {
+  0: 'Professional',
+  1: 'Adult',
+  2: 'College',
+  3: 'Hight school',
+  4: 'u20',
+  5: 'u19',
+  6: 'u18',
+  7: 'u17',
+  8: 'u16',
+  9: 'u15',
+  10: 'u14',
+  11: 'u13',
+  12: 'u12',
+  13: 'u11',
+  14: 'u10',
+  15: 'u9',
+  16: 'u8',
+  17: 'u7',
+  18: 'u6',
+  19: 'u5',
+  20: 'u4',
+  21: 'u3',
+};
+
+export default ageGroups;
