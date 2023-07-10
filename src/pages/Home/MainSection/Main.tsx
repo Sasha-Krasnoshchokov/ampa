@@ -22,7 +22,7 @@ const Main: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
     } else {
       navigate('/signUp');
     }
-  }, [isLogIn]);
+  }, [isLogIn, navigate]);
 
   const handleSwitcher = useCallback((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.stopPropagation();
@@ -45,7 +45,7 @@ const Main: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
 
       <section className="main_section main_figures">
 
-        <div className="main_figures_content">
+        {/* <div className="main_figures_content">
           <h4 className="main_figures_content_title">Referees</h4>
           <div className="main_figures_content_icon main_figures_content_icon_whistle" />
           <span className="main_figures_content_numbers">40</span>
@@ -67,7 +67,7 @@ const Main: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
           <h4 className="main_figures_content_title">Tournaments</h4>
           <div className="main_figures_content_icon main_figures_content_icon_cup" />
           <span className="main_figures_content_numbers">500</span>
-        </div>
+        </div> */}
 
       </section>
 
