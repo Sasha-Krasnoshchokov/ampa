@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { setPopUp } from '../../../store/actions/popUpSlice';
-import useUserActions from '../../../hooks/useUserActions';
+// import useUserActions from '../../../hooks/useUserActions';
 
 import './Header.scss';
 import Logo from '../../../components/Logo/Logo';
@@ -16,13 +16,13 @@ const Header: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { logIn } = useUserActions();
+  // const { logIn } = useUserActions();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogo = useCallback(() => {
     navigate('/');
-  }, []);
+  }, [navigate]);
 
   const handleNavigate = useCallback(() => {
     if (isLogIn) {
@@ -31,7 +31,7 @@ const Header: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
     } else {
       navigate('/signUp');
     }
-  }, [isLogIn]);
+  }, [isLogIn, navigate]);
 
   const handleMenuItem = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
     const { id } = event.target as HTMLDivElement;
@@ -39,12 +39,13 @@ const Header: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
   }, []);
 
   const handleLogIn = useCallback(() => {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-    sessionStorage.setItem('isHandleLogIn', 'true');
-    logIn();
-  }, [isMenuOpen]);
+    // if (isMenuOpen) {
+    //   setIsMenuOpen(false);
+    // }
+    // sessionStorage.setItem('isHandleLogIn', 'true');
+    // logIn();
+      navigate('/logIn');
+  }, [navigate]);
 
   const handleLogOut = useCallback(() => {
     if (isMenuOpen) {
@@ -55,7 +56,7 @@ const Header: React.FC<{ isLogIn: boolean }> = ({ isLogIn }): JSX.Element => {
       content: 'confirmAction/Log out',
       title: 'Are you sure that you want to log out!',
     }));
-  }, [isMenuOpen]);
+  }, [isMenuOpen, dispatch]);
 
   const handleMenuBtn = useCallback(() => {
     setIsMenuOpen(!isMenuOpen);

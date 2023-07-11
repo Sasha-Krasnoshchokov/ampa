@@ -4,8 +4,8 @@ import validation from '../../../library/validation';
 
 import './Formix.scss';
 
-const cardNumberRegEx = /\d{4}\s\d{4}\s\d{4}\s\d{4}/;
-const expirationRegEx = /(?:0[1-9]|1[0-2])[/][0-9]{2}/;
+// const cardNumberRegEx = /\d{4}\s\d{4}\s\d{4}\s\d{4}/;
+// const expirationRegEx = /(?:0[1-9]|1[0-2])[/][0-9]{2}/;
 
 type Props = {
   id: string;
@@ -39,7 +39,7 @@ const Input: React.FC<Props> = ({
       || (value.length === 2 && !(/\d\d/).test(value))
       || (value.length === 3 && !(/\d\d\d/).test(value))) return;
     setCvvCode(value);
-  }, [cvvCode]);
+  }, []);
 
   const handleExpiration = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -61,7 +61,7 @@ const Input: React.FC<Props> = ({
     }, '');
 
     setExpirationDate(newValue);
-  }, [expirationDate]);
+  }, []);
 
   const handleCardNumber = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -77,7 +77,7 @@ const Input: React.FC<Props> = ({
       return `${prev}${next}`;
     }, '');
     setCardNumber(newValue);
-  }, [cardNumber]);
+  }, []);
 
   const validateData = useCallback((event: React.FocusEvent<HTMLInputElement, Element>) => {
     event.preventDefault();
@@ -95,22 +95,26 @@ const Input: React.FC<Props> = ({
     if (required && value) {
       setStatus('correct');
     }
-    if (inputId === 'E-mail' && !validation.email(value)) {
+    // if (inputId === 'input_email' && !validation.email(value)) {
+    if (inputId.toLowerCase().includes('mail') && !validation.email(value)) {
       setStatus('incorrect');
     }
-    if (inputId === 'Phone number' && !validation.phoneNumber(value)) {
+    // if (inputId === 'Phone number' && !validation.phoneNumber(value)) {
+    if (inputId.toLowerCase().includes('phone') && !validation.phoneNumber(value)) {
       setStatus('incorrect');
     }
-    if (inputId === 'Card number' && !cardNumberRegEx.test(value)) {
+    // if (inputId === 'Card number' && !cardNumberRegEx.test(value)) {
+    if (inputId.toLowerCase().includes('card') && !validation.cardNumber(value)) {
       setStatus('incorrect');
     }
-    if (inputId === 'Expiration date' && !expirationRegEx.test(value)) {
+    // if (inputId === 'Expiration date' && !expirationRegEx.test(value)) {
+    if (inputId.toLowerCase().includes('expiration') && !validation.expiration(value)) {
       setStatus('incorrect');
     }
     if (inputId === 'gameDate' && (new Date(value)).toLocaleDateString() < (new Date()).toLocaleDateString()) {
       setStatus('incorrect');
     }
-  }, []);
+  }, [textColor]);
 
   useEffect(() => {
     if (!textColor) return;

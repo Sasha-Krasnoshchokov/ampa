@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './Registration.scss';
 import SignUp from '../../components/Forms/SignUp';
-// import LogIn from '../../components/Forms/Login';
+import LogIn from '../../components/Forms/Login';
 // import CreateAccount from '../../components/Forms/CreateAccount';
 // import Invitation from '../../components/Forms/Invitation';
 // import ClubInfo from '../../components/Forms/ClubInfo';
@@ -19,7 +19,7 @@ interface Type {
 const Registration: React.FC<Props> = ({ type }): JSX.Element => {
   const [registrationTypes] = useState<Type>({
     signUp: <SignUp />,
-    // logIn: <LogIn />,
+    logIn: <LogIn />,
     // createAccount: <CreateAccount />,
     // invitation: <Invitation />,
     // clubInfo: <ClubInfo />,

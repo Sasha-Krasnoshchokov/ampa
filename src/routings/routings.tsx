@@ -23,11 +23,11 @@ const router = createBrowserRouter([
     element: <Registration type="signUp" />,
     errorElement: <ErrorPage />,
   },
-  // {
-  //   path: 'logIn',
-  //   element: <Registration type="logIn" />,
-  //   errorElement: <ErrorPage />,
-  // },
+  {
+    path: 'logIn',
+    element: <Registration type="logIn" />,
+    errorElement: <ErrorPage />,
+  },
   // {
   //   path: 'createAccount',
   //   element: <Registration type="createAccount" />,

@@ -68,7 +68,7 @@ const SignUp: React.FC = (): JSX.Element => {
     sessionStorage.setItem('isHandleLogIn', 'true');
     navigate('/auth');
     logIn();
-  }, []);
+  }, [logIn, navigate]);
 
   return (
     <div className="signUp">
@@ -173,7 +173,7 @@ const SignUp: React.FC = (): JSX.Element => {
 
             {formFor === 'clubs' ? (
               <>
-                <div id="emailPhone" className="formix_row">
+                <div id="organizationName" className="formix_row">
                   <Input
                     id="organizationName"
                     isRequired
