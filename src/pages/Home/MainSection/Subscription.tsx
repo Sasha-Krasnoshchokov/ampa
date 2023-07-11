@@ -43,7 +43,7 @@ const Subscription: React.FC = (): JSX.Element => {
 
   return (
     <>
-      <section id="price" className="main_section main_subscription">
+      <section id="subscription" className="main_section main_subscription">
         <h2 className="main_title">
           CenteRef
           <span className="main_title__blue"> Subscription</span>
