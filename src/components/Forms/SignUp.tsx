@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import useUserActions from '../../hooks/useUserActions';
+// import useUserActions from '../../hooks/useUserActions';
 
 import FORMS from '../../data/constants/forms';
 import { salesLeadRoles } from '../../data/constants/roles';
@@ -19,7 +19,7 @@ const SignUp: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 
-  const { logIn } = useUserActions();
+  // const { logIn } = useUserActions();
 
   // const { postData } = API;
 
@@ -65,10 +65,11 @@ const SignUp: React.FC = (): JSX.Element => {
   }, []);
 
   const handleLogIn = useCallback(() => {
-    sessionStorage.setItem('isHandleLogIn', 'true');
-    navigate('/auth');
-    logIn();
-  }, [logIn, navigate]);
+    // sessionStorage.setItem('isHandleLogIn', 'true');
+    // navigate('/auth');
+    // logIn();
+    navigate('/logIn');
+  }, [navigate]);
 
   return (
     <div className="signUp">
